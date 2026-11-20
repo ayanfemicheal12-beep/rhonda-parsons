@@ -10,6 +10,7 @@
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#f4a7b9">
 <link rel="canonical" href="https://ayanfemicheal12-beep.github.io/rhonda-parsons">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%23e8798a'/><stop offset='50%25' stop-color='%239b7fa6'/><stop offset='100%25' stop-color='%233a9b9b'/></linearGradient></defs><circle cx='50' cy='50' r='50' fill='url(%23g)'/><text x='50' y='68' text-anchor='middle' font-family='Georgia,serif' font-size='52' font-style='italic' fill='white'>R</text></svg>" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Rhonda Parsons — Official Author Website">
 <meta property="og:description" content="Poet, performer, and author of Take Five. Explore her poetry, audiobook, and radio appearances.">
@@ -32,11 +33,17 @@
   --gold:#d4af7a;--light:#f0ece8;
 }
 html{scroll-behavior:smooth}
-body{background:var(--midnight);color:var(--light);font-family:'Cormorant Garamond',serif;overflow-x:hidden;cursor:none}
+body{background:var(--midnight);color:var(--light);font-family:'Cormorant Garamond',serif;overflow-x:hidden;}
 
-/* CURSOR */
-.cursor{width:8px;height:8px;background:var(--pink);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s;mix-blend-mode:screen}
-.cursor-ring{width:36px;height:36px;border:1px solid rgba(244,167,185,.4);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s}
+/* CURSOR — desktop only */
+@media(pointer:fine){
+  body{cursor:none}
+  .cursor{width:8px;height:8px;background:var(--pink);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .08s ease;mix-blend-mode:screen;display:block}
+  .cursor-ring{width:36px;height:36px;border:1px solid rgba(244,167,185,.4);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .12s ease,top .12s ease;display:block}
+}
+@media(pointer:coarse){
+  .cursor,.cursor-ring{display:none!important}
+}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(13,31,45,.95),transparent);transition:all .3s}
@@ -50,16 +57,16 @@ nav.scrolled{background:rgba(13,31,45,.96);backdrop-filter:blur(14px);border-bot
 
 /* HERO */
 #hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,#f9c5cc 0%,#e8a0b4 10%,#c47fa4 22%,#9b7fa6 35%,#6b7fb8 48%,#4a8faa 60%,#2d8d90 72%,#1e7a7a 82%,#125f6a 90%,#0d4a58 100%);animation:heroFloat 18s ease-in-out infinite alternate}
-@keyframes heroFloat{0%{transform:scale(1.05) translateY(0)}100%{transform:scale(1.08) translateY(-18px)}}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,#f9c5cc 0%,#e8a0b4 10%,#c47fa4 22%,#9b7fa6 35%,#6b7fb8 48%,#4a8faa 60%,#2d8d90 72%,#1e7a7a 82%,#125f6a 90%,#0d4a58 100%);animation:heroFloat 20s cubic-bezier(.45,.05,.55,.95) infinite alternate;will-change:transform}
+@keyframes heroFloat{0%{transform:scale(1.05) translateY(0)}100%{transform:scale(1.09) translateY(-22px)}}
 .mountain-layer{position:absolute;bottom:0;left:0;right:0;pointer-events:none}
 .mountain-layer svg{display:block;width:100%}
-.m1{animation:mf1 12s ease-in-out infinite alternate}
-.m2{animation:mf2 16s ease-in-out infinite alternate}
-.m3{animation:mf3 20s ease-in-out infinite alternate}
-@keyframes mf1{0%{transform:translateY(0)}100%{transform:translateY(-12px)}}
-@keyframes mf2{0%{transform:translateY(0)}100%{transform:translateY(-7px)}}
-@keyframes mf3{0%{transform:translateY(0)}100%{transform:translateY(-4px)}}
+.m1{animation:mf1 14s cubic-bezier(.37,0,.63,1) infinite alternate;will-change:transform}
+.m2{animation:mf2 18s cubic-bezier(.37,0,.63,1) infinite alternate;will-change:transform}
+.m3{animation:mf3 22s cubic-bezier(.37,0,.63,1) infinite alternate;will-change:transform}
+@keyframes mf1{0%{transform:translateY(0)}100%{transform:translateY(-16px)}}
+@keyframes mf2{0%{transform:translateY(0)}100%{transform:translateY(-10px)}}
+@keyframes mf3{0%{transform:translateY(0)}100%{transform:translateY(-6px)}}
 .mist{position:absolute;inset:0;background:radial-gradient(ellipse 120% 40% at 50% 60%,rgba(58,155,155,.15) 0%,transparent 70%);pointer-events:none}
 .particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .particle{position:absolute;width:2px;height:2px;background:rgba(255,255,255,.6);border-radius:50%;animation:rise linear infinite}
@@ -92,7 +99,7 @@ nav.scrolled{background:rgba(13,31,45,.96);backdrop-filter:blur(14px);border-bot
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:#fff;line-height:1.2;margin-bottom:16px}
 .section-title em{font-style:italic;color:var(--pink)}
 .section-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(255,255,255,.4);line-height:1.7}
-.reveal{opacity:0;transform:translateY(35px);transition:opacity .85s ease,transform .85s ease}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.25,.46,.45,.94),transform 1s cubic-bezier(.25,.46,.45,.94)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
 /* DIVIDER LINE */
@@ -141,10 +148,12 @@ nav.scrolled{background:rgba(13,31,45,.96);backdrop-filter:blur(14px);border-bot
 .book-card:hover{background:rgba(255,255,255,.04);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
 .book-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--rose),var(--teal));transform:scaleX(0);transition:transform .4s}
 .book-card:hover::before{transform:scaleX(1)}
-.book-card-cover{width:100%;aspect-ratio:2/3;overflow:hidden;position:relative;background:linear-gradient(135deg,#1a2a3a,#0d1f2d)}
-.book-card-cover img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.book-card:hover .book-card-cover img{transform:scale(1.04)}
-.book-card-cover-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Dancing Script',cursive;font-size:1.4rem;color:rgba(255,255,255,.3);padding:20px;text-align:center}
+.book-card-cover{width:100%;aspect-ratio:2/3;overflow:hidden;position:relative;background:linear-gradient(160deg,#f9c5cc 0%,#c47fa4 30%,#9b7fa6 55%,#4a8faa 75%,#1e7a7a 100%)}
+.book-card-cover img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.25,.46,.45,.94);display:block}
+.book-card-cover img.error-hidden{display:none}
+.book-card:hover .book-card-cover img{transform:scale(1.05)}
+.book-card-cover-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Dancing Script',cursive;font-size:2.2rem;color:#fff;padding:20px;text-align:center;background:linear-gradient(160deg,#f9c5cc 0%,#c47fa4 30%,#9b7fa6 55%,#4a8faa 75%,#1e7a7a 100%);position:absolute;inset:0;z-index:1}
+.book-card-cover-placeholder span{font-family:'Josefin Sans',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:8px;display:block}
 .book-card-badge{position:absolute;top:16px;right:16px;padding:5px 12px;background:linear-gradient(135deg,var(--rose),var(--mauve));font-family:'Josefin Sans',sans-serif;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:#fff}
 .book-card-body{padding:28px 24px}
 .book-card-genre{font-family:'Josefin Sans',sans-serif;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pink);margin-bottom:10px}
@@ -168,9 +177,9 @@ nav.scrolled{background:rgba(13,31,45,.96);backdrop-filter:blur(14px);border-bot
 .audio-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .audio-visual{display:flex;justify-content:center;align-items:center;position:relative}
 .vinyl-wrap{position:relative;display:flex;justify-content:center;align-items:center}
-.vinyl{width:200px;height:200px;border-radius:50%;background:radial-gradient(circle at 50%,#1a1a1a 0%,#1a1a1a 18%,#111 19%,#111 22%,#1a1a1a 24%,#111 44%,#222 46%,#111 48%,#1a1a1a 100%);box-shadow:0 0 50px rgba(58,155,155,.25);position:relative;animation:spin 12s linear infinite}
+.vinyl{width:200px;height:200px;border-radius:50%;background:radial-gradient(circle at 50%,#1a1a1a 0%,#1a1a1a 18%,#111 19%,#111 22%,#1a1a1a 24%,#111 44%,#222 46%,#111 48%,#1a1a1a 100%);box-shadow:0 0 50px rgba(58,155,155,.25);position:relative;animation:spin 10s linear infinite;will-change:transform}
 @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-.vinyl-label{position:absolute;width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--rose),var(--mauve));display:flex;align-items:center;justify-content:center;font-family:'Dancing Script',cursive;font-size:.7rem;color:#fff;text-align:center;line-height:1.3;z-index:2;animation:spin 12s linear infinite reverse}
+.vinyl-label{position:absolute;width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--rose),var(--mauve));display:flex;align-items:center;justify-content:center;font-family:'Dancing Script',cursive;font-size:.7rem;color:#fff;text-align:center;line-height:1.3;z-index:2;animation:spin 10s linear infinite reverse;will-change:transform}
 .audio-ring{position:absolute;border-radius:50%;border:1px solid rgba(58,155,155,.15);animation:ringPulse 3s ease-out infinite}
 .audio-ring:nth-child(1){width:250px;height:250px;animation-delay:0s}
 .audio-ring:nth-child(2){width:310px;height:310px;animation-delay:1s}
@@ -431,8 +440,9 @@ footer{padding:50px 60px 28px;border-top:1px solid rgba(255,255,255,.05)}
 
     <!-- TAKE FIVE -->
     <div class="book-card reveal">
-      <div class="book-card-cover">
-        <img src="https://ayanfemicheal12-beep.github.io/rhonda-parsons/cover.jpg" alt="Take Five by Rhonda Parsons" onerror="this.style.display='none'">
+      <div class="book-card-cover" id="coverWrap">
+        <img src="https://ayanfemicheal12-beep.github.io/rhonda-parsons/cover.jpg" alt="Take Five by Rhonda Parsons" id="coverImg" onerror="this.classList.add('error-hidden');document.getElementById('coverFallback').style.display='flex'">
+        <div class="book-card-cover-placeholder" id="coverFallback" style="display:none">Take Five<span>Rhonda Parsons</span></div>
         <div class="book-card-badge">Available Now</div>
       </div>
       <div class="book-card-body">
